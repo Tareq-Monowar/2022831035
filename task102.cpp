@@ -76,10 +76,10 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        // Increase the radius
+        
         radius += RADIUS_INCREMENT;
 
-        // Check collision with window boundaries
+        
         if (centerX + radius >= SCREEN_WIDTH || centerY + radius >= SCREEN_HEIGHT || centerX - radius <= 0 || centerY - radius <= 0) {
             radius = INITIAL_RADIUS;
         }
