@@ -6,7 +6,7 @@
 #define SCREEN_WIDTH 500
 #define SCREEN_HEIGHT 500
 #define CIRCLE_RADIUS 20
-#define CIRCLE_SPEED 4 
+#define CIRCLE_SPEED 6 
 
 bool initializeSDL(SDL_Window** window, SDL_Renderer** renderer) {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
@@ -104,26 +104,26 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        // Move the moving circle from left to right continuously
+        
         movingCircleX += CIRCLE_SPEED;
         if (movingCircleX >= SCREEN_WIDTH)
-            movingCircleX = 0 - CIRCLE_RADIUS * 2; // Reset position if it goes off-screen
+            movingCircleX = 0 - CIRCLE_RADIUS * 2; 
 
-        // Check collision between circles
+        
         bool collision = checkCollision(movingCircleX + CIRCLE_RADIUS, movingCircleY + CIRCLE_RADIUS, CIRCLE_RADIUS, secondCircleX, secondCircleY, CIRCLE_RADIUS);
 
         SDL_SetRenderDrawColor(renderer, 100, 200, 55, 35);
         SDL_RenderClear(renderer);
 
-        // Draw moving circle
+        
         SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
         drawCircle(renderer, movingCircleX, movingCircleY, CIRCLE_RADIUS);
 
-        // Draw second circle
+        
         SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
         drawCircle(renderer, secondCircleX, secondCircleY, CIRCLE_RADIUS);
 
-        // If collision, change color
+        
         if (collision) {
             SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
             drawCircle(renderer, movingCircleX, movingCircleY, CIRCLE_RADIUS);
