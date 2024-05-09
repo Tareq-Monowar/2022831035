@@ -6,7 +6,7 @@
 #define SCREEN_WIDTH 500
 #define SCREEN_HEIGHT 500
 #define CIRCLE_RADIUS 20
-#define CIRCLE_SPEED 7
+#define CIRCLE_SPEED 4 
 
 bool initializeSDL(SDL_Window** window, SDL_Renderer** renderer) {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
